@@ -1,0 +1,393 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard &amp; Pelaporan Kinerja - BBPPMPV BBL</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <aside id="sidebar">
+    <div class="sidebar-header">
+      <div class="brand-wrap">
+        <div class="brand-logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+        </div>
+        <div class="brand-info">
+          <span class="sidebar-badge">BBPPMPV BBL</span>
+          <h1 class="sidebar-title">SOUL BBL</h1>
+          <p class="sidebar-subtitle">Bidang Bangunan &amp; Listrik</p>
+        </div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="menu-section" id="menu-info" onclick="showPage('info')">
+        <svg class="menu-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="20" x2="18" y2="10"></line>
+          <line x1="12" y1="20" x2="12" y2="4"></line>
+          <line x1="6" y1="20" x2="6" y2="14"></line>
+        </svg>
+        <span class="nav-text">Informasi Umum</span>
+      </div>
+
+      <div class="nav-section-title">NAMA TIM KERJA</div>
+
+      
+      <div class="nav-team-group" id="group-faspenkom">
+        <div class="nav-team-header active" id="header-faspenkom" onclick="toggleTeamGroup('faspenkom')">
+          <div class="nav-team-title">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+            </svg>
+            <span>Tim Kerja Faspenkom</span>
+          </div>
+          <svg class="chevron-svg expanded" id="arrow-faspenkom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 6 15 12 9 18"></polyline>
+          </svg>
+        </div>
+        <ul class="subteam-list" id="list-faspenkom">
+          <li data-form-key="faspenkom_guru" class="active" onclick="switchForm('faspenkom_guru')">
+            <span class="subteam-dot"></span>
+            <span class="subteam-label">Faspenkom Guru SMK</span>
+          </li>
+          <li data-form-key="faspenkom_tendik" onclick="switchForm('faspenkom_tendik')">
+            <span class="subteam-dot"></span>
+            <span class="subteam-label">Faspenkom Tendik</span>
+          </li>
+        </ul>
+      </div>
+
+      
+      <div class="nav-team-group" id="group-mitras">
+        <div class="nav-team-header" id="header-mitras" onclick="switchForm('mitras')">
+          <div class="nav-team-title">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="8.5" cy="7" r="4"></circle>
+              <line x1="20" y1="8" x2="20" y2="14"></line>
+              <line x1="23" y1="11" x2="17" y2="11"></line>
+            </svg>
+            <span>Tim Kerja Mitras</span>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="nav-team-group" id="group-ppmpv">
+        <div class="nav-team-header" id="header-ppmpv" onclick="switchForm('ppmpv')">
+          <div class="nav-team-title">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+            <span>Tim Kerja PPMPV</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-team-group" id="group-kepegawaian">
+        <div class="nav-team-header" id="header-kepegawaian" onclick="switchForm('kepegawaian')">
+          <div class="nav-team-title">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            <span>Kepegawaian &amp; Tata Laksana</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-team-group" id="group-bmn">
+        <div class="nav-team-header" id="header-bmn" onclick="switchForm('bmn')">
+          <div class="nav-team-title">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+            </svg>
+            <span>BMN</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-team-group" id="group-data_info">
+        <div class="nav-team-header" id="header-data_info" onclick="switchForm('data_info')">
+          <div class="nav-team-title">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+              <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+            </svg>
+            <span>Data, Informasi &amp; Publikasi</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-team-group" id="group-kerumahtanggaan">
+        <div class="nav-team-header" id="header-kerumahtanggaan" onclick="switchForm('kerumahtanggaan')">
+          <div class="nav-team-title">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            <span>Kerumahtanggaan &amp; Kehumasan</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="nav-team-group" id="group-keuangan">
+        <div class="nav-team-header" id="header-keuangan" onclick="switchForm('keuangan')">
+          <div class="nav-team-title">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="1" x2="12" y2="23"></line>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+            <span>Keuangan</span>
+          </div>
+        </div>
+      </div>
+
+    </nav>
+
+    <div class="sidebar-footer">
+      <div>T.A. 2026 &bull; BBPPMPV BBL</div>
+      <div class="footer-status">
+        <span class="status-dot"></span> Online
+      </div>
+    </div>
+  </aside>
+
+  <main id="main">
+
+    <section id="page-info" class="page">
+      <div class="page-header-box">
+        <h2 class="page-title">INFORMASI UMUM PERJANJIAN KINERJA</h2>
+        <p class="page-subtitle">Rincian Sasaran Kegiatan dan Indikator Kinerja Balai Besar Pengembangan Penjaminan Mutu Pendidikan Vokasi Bidang Bangunan dan Listrik</p>
+      </div>
+
+      <div class="pk-heading">PK 2026</div>
+      <table class="info-table">
+        <thead>
+          <tr>
+            <th style="width:24%">Sasaran</th>
+            <th>Indikator</th>
+            <th style="width:9%">Satuan</th>
+            <th style="width:11%">Target</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="3">[SK 1] Meningkatnya mutu pendidikan dan pelatihan pendidik dan tenaga kependidikan vokasi</td>
+            <td>[IKK 1.1] Persentase pendidik dan tenaga kependidikan satuan pendidikan vokasi yang memiliki kompetensi yang selaras dengan kebutuhan dunia kerja</td>
+            <td>Persen</td>
+            <td>19,35</td>
+          </tr>
+          <tr>
+            <td>[IKK 1.2] Jumlah satuan pendidikan vokasi yang meningkat mutunya</td>
+            <td>Lembaga</td>
+            <td>420</td>
+          </tr>
+          <tr>
+            <td>[IKK 1.3] Jumlah model pembelajaran vokasi hasil kerja sama mitra dunia kerja yang diterapkan oleh satuan pendidikan vokasi</td>
+            <td>Model</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td rowspan="2">[SK 2] Meningkatnya tata kelola Balai Besar Pengembangan Penjaminan Mutu Pendidikan Vokasi Bidang Bangunan dan Listrik</td>
+            <td>[IKK 2.1] Capaian Nilai Kinerja Balai Besar Pengembangan Penjaminan Mutu Pendidikan Vokasi Bidang Bangunan dan Listrik dengan kategori Sangat Baik</td>
+            <td>Kategori</td>
+            <td>Sangat Baik</td>
+          </tr>
+          <tr>
+            <td>[IKK 2.2] Predikat Akuntabilitas Kinerja Instansi Pemerintah Balai Besar Pengembangan Penjaminan Mutu Pendidikan Vokasi Bidang Bangunan dan Listrik minimal A</td>
+            <td>Predikat</td>
+            <td>AA</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="pk-heading">PK 2025</div>
+      <table class="info-table">
+        <thead>
+          <tr>
+            <th style="width:24%">Sasaran</th>
+            <th>Indikator</th>
+            <th style="width:9%">Satuan</th>
+            <th style="width:11%">Target</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="3">[SK 1] Meningkatnya mutu pendidikan dan pelatihan pendidik dan tenaga kependidikan vokasi</td>
+            <td>[IKK 1.1] Persentase pendidik dan tenaga kependidikan satuan pendidikan vokasi yang memiliki kompetensi yang selaras dengan kebutuhan dunia kerja</td>
+            <td>Persen</td>
+            <td>15,73</td>
+          </tr>
+          <tr>
+            <td>[IKK 1.2] Jumlah satuan pendidikan vokasi yang meningkat mutunya</td>
+            <td>Lembaga</td>
+            <td>271</td>
+          </tr>
+          <tr>
+            <td>[IKK 1.3] Jumlah model pembelajaran vokasi hasil kerja sama mitra dunia kerja yang diterapkan oleh satuan pendidikan vokasi</td>
+            <td>Model</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td rowspan="2">[SK 2] Meningkatnya tata kelola Balai Besar Pengembangan Penjaminan Mutu Pendidikan Vokasi Bidang Bangunan dan Listrik</td>
+            <td>[IKK 2.1] Capaian Nilai Kinerja Balai Besar Pengembangan Penjaminan Mutu Pendidikan Vokasi Bidang Bangunan dan Listrik dengan kategori Sangat Baik</td>
+            <td>Kategori</td>
+            <td>Sangat Baik</td>
+          </tr>
+          <tr>
+            <td>[IKK 2.2] Predikat Akuntabilitas Kinerja Instansi Pemerintah Balai Besar Pengembangan Penjaminan Mutu Pendidikan Vokasi Bidang Bangunan dan Listrik minimal A</td>
+            <td>Predikat</td>
+            <td>A</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="page-form" class="page active">
+      <div id="forms-dynamic-wrapper"></div>
+    </section>
+
+  </main>
+
+  <div id="toast"></div>
+
+  
+  <div id="preview-modal" class="modal-overlay" style="display:none;" onclick="handlePreviewOverlayClick(event)">
+    <div class="modal-card review-modal-card">
+      <div class="review-modal-header">
+        <div class="review-modal-title-row">
+          <div>
+            <span class="review-badge-parent" id="preview-modal-parent">BBPPMPV BBL</span>
+            <h3 class="review-modal-title" id="preview-modal-title">Review Laporan Kinerja</h3>
+            <p class="review-modal-desc" id="preview-modal-subtitle">Periksa seluruh isian sebelum melakukan submit.</p>
+          </div>
+          <button type="button" class="btn-close-review" onclick="closePreviewModal()" title="Tutup Review">&times;</button>
+        </div>
+        <div class="review-summary-pill" id="preview-modal-summary">
+          
+        </div>
+      </div>
+
+      <div class="review-content" id="preview-content">
+        
+      </div>
+
+      <div class="review-modal-footer">
+        <button type="button" class="btn-review-back" onclick="closePreviewModal()">
+          ✏️ Lanjut Edit Formulir
+        </button>
+        <div class="review-footer-right">
+          <button type="button" class="btn-review-word" id="btn-review-word" onclick="handleDownloadWordFromReview()">
+            📄 Unduh Word (.doc)
+          </button>
+          <button type="button" class="btn-review-submit" id="btn-review-submit" onclick="handleSubmitFromReview()">
+            <span>&#10003;</span> Submit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div id="submit-success-modal" class="modal-overlay" style="display:none;" onclick="handleModalOverlayClick(event)">
+    <div class="modal-card submit-modal-card">
+      <div class="modal-icon-wrap">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+      </div>
+      <h3 class="modal-title">Laporan Berhasil Disubmit!</h3>
+      <p class="modal-desc" id="modal-submit-desc">
+        Laporan kinerja telah berhasil disubmit. Formulir telah dikosongkan kembali untuk pengisian berikutnya.
+      </p>
+
+      <div class="modal-download-box">
+        <div class="modal-download-title">Unduh Dokumen (Opsional):</div>
+        <div class="modal-btn-group">
+          <button type="button" class="btn-modal-word" id="modal-btn-word">
+            <span>📄</span> Download Dokumen Word (.doc)
+          </button>
+          <button type="button" class="btn-modal-pdf" id="modal-btn-pdf">
+            <span>📥</span> Download Dokumen PDF
+          </button>
+        </div>
+      </div>
+
+      <div class="modal-footer-actions">
+        <button type="button" class="btn-modal-new" id="modal-btn-new">
+          <span>➕</span> Pengisian Formulir Baru
+        </button>
+        <button type="button" class="btn-modal-close" onclick="closeSubmitModal()">
+          Tutup
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <iframe name="hidden_upload_frame" id="hidden_upload_frame" style="display:none;" width="0" height="0"></iframe>
+
+  <!-- ===== SOUL BBL WELCOME POPUP ===== -->
+  <div id="soul-popup-overlay" class="soul-popup-overlay">
+    <div class="soul-popup-card">
+      <!-- Dekorasi sudut atas kiri -->
+      <div class="soul-popup-corner soul-corner-tl"></div>
+      <div class="soul-popup-corner soul-corner-tr"></div>
+
+      <!-- Bagian atas: logo + judul -->
+      <div class="soul-popup-top">
+        <div class="soul-popup-icon-wrap">
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+          </svg>
+        </div>
+        <div class="soul-popup-header-text">
+          <div class="soul-popup-org">BBPPMPV BBL</div>
+          <h2 class="soul-popup-title">SOUL</h2>
+          <p class="soul-popup-title-sub">Sistem Olah dan Unggah Lakin</p>
+        </div>
+      </div>
+
+      <!-- Garis pemisah -->
+      <div class="soul-popup-divider"></div>
+
+      <!-- Tagline -->
+      <div class="soul-popup-tagline">
+        <span class="soul-chevron">&#10148;</span>
+        <span class="soul-tagline-text"><em>Siapkan Datanya ya</em> &#128522;</span>
+        <span class="soul-chevron soul-chevron-flip">&#10148;</span>
+      </div>
+
+      <!-- Info kecil -->
+      <p class="soul-popup-info">Pastikan data kinerja Anda sudah lengkap sebelum mengisi formulir.</p>
+
+      <!-- Tombol masuk -->
+      <button class="soul-popup-btn" onclick="closeSoulPopup()">
+        <span>Mulai Pengisian</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 6 15 12 9 18"></polyline>
+        </svg>
+      </button>
+
+      <!-- Dekorasi sudut bawah -->
+      <div class="soul-popup-corner soul-corner-bl"></div>
+      <div class="soul-popup-corner soul-corner-br"></div>
+    </div>
+  </div>
+  <!-- ===== END SOUL BBL WELCOME POPUP ===== -->
+
+  <script src="script.js"></script>
+</body>
+</html>
